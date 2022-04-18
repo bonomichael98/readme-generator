@@ -1,31 +1,24 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
-const generatePage = require("./page-template/template");
 
-const promptUser = () => {
+const promptProject = portfolioData => {
+    console.log(`promptProject beginning`)
+
     return inquirer.prompt([
-        //promptUser beginning
+        //beginning of inputs
         {
             type: 'input',
-            name: 'name',
+            name: 'yourName',
             message: 'What is your name?'
         },
         {
             type: 'input',
             name: 'github',
             message: 'What is your Github Username?'
-        }
-    ])
-};
-
-const promptProject = portfolioData => {
-    console.log(`promptProject beginning`)
-
-    return inquirer.prompt([
+        },
         {
-            //title of project
             type: "input",
-            name: "name",
+            name: "title",
             message: "What is the name of your project?",
         },
         {
@@ -35,7 +28,7 @@ const promptProject = portfolioData => {
         },
         {
             type: 'input',
-            name: 'Table of Contents',
+            name: 'tableOfContents',
             message: 'Create a table of contents.',
         },
         {
@@ -58,17 +51,46 @@ const promptProject = portfolioData => {
             name: 'tests',
             message: 'Tell us about the tests for this project.',
         },
-    ])
-}
+        //end of inputs
+    ]
+    ).then(( {
+        title, yourName, github, about, tableOfContents, installation, usage, contributing, tests
+    }));
+};
 
-promptUser()
-    .then(promptProject)
-    .then(portfolioData => {
-        const pageHTML = generatePage();
+const readmeSkeleton = (title, yourName, github,about,tableOfContents,installation,usage,contributing,tests) => {
+    return`
+    ##001 ${title}
+    ##002 ${yourName}
+    ##003 ${github}
+    ##004 ${about}
+    ##005 ${tableOfContents}
+    ##006 ${installation}
+    ##007 ${usage}
+    ##008 ${contributing}
+    ##009 ${tests}
+    `
+};
+// promptUser()
+//     .then(promptProject)
+//     .then(portfolioData => {
+//         const pageHTML = generatePage();
 
-        fs.writeFile('./README.md', , err => {
-          if (err) throw new Error(err);
+//         fs.writeFile('./README.md', , err => {
+//           if (err) throw new Error(err);
 
-          console.log('Page created! Check out index.html in this directory to see it!');
-        });
+//           console.log('Page created! Check out index.html in this directory to see it!');
+//         });
+//     });
+
+function createNewFile(readmeSkeleton) {
+    fs.writeFile(`./${fileName}.md`, data, () => {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log('success');
+        };
     });
+};
+
+promptProject();
