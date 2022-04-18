@@ -2,8 +2,6 @@ const inquirer = require("inquirer");
 const fs = require("fs");
 
 const promptProject = portfolioData => {
-    console.log(`promptProject beginning`)
-
     return inquirer.prompt([
         //beginning of inputs
         {
@@ -50,12 +48,12 @@ const promptProject = portfolioData => {
             type: 'input',
             name: 'tests',
             message: 'Tell us about the tests for this project.',
-        },
+        }
         //end of inputs
     ]
-    ).then(( {
+    ).then( {
         title, yourName, github, about, tableOfContents, installation, usage, contributing, tests
-    }));
+    });
 };
 
 const readmeSkeleton = (title, yourName, github,about,tableOfContents,installation,usage,contributing,tests) => {
@@ -83,14 +81,14 @@ const readmeSkeleton = (title, yourName, github,about,tableOfContents,installati
 //         });
 //     });
 
-function createNewFile(readmeSkeleton) {
-    fs.writeFile(`./${fileName}.md`, data, () => {
-        if (err) {
-            console.log(err);
-        } else {
-            console.log('success');
-        };
-    });
-};
+// function createNewFile(readmeSkeleton) {
+//     fs.writeFile(`./${fileName}.md`, data, () => {
+//         if (err) {
+//             console.log(err);
+//         } else {
+//             console.log('success');
+//         };
+//     });
+// };
 
 promptProject();
