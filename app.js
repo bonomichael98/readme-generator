@@ -60,31 +60,27 @@ const promptProject = portfolioData => {
 
 const readmeSkeleton = (title, yourName, github,about,tableOfContents,installation,usage,contributing,tests) => {
     let data = `
-    ##001 ${title}
-    ##002 Author
+    ## 01 ${title}
+    ## 02 Author
     ${yourName}
-    ##003 Github
+    ## 03 Github
     ${github}
-    ##004 Description
+    ## 004 Description
     ${about}
-    ##005 Categories
+    ## 05 Categories
     ${tableOfContents}
-    ##006 How to install
+    ## 06 How to install
     ${installation}
-    ##007 ${usage}
-    ##008 Contributors
+    ## 07 ${usage}
+    ## 08 Contributors
     ${contributing}
-    ##009 Testing
+    ## 09 Testing
     ${tests}
     `
     create(data)
     function create(data) {
         fs.writeFile(`./readme.md`, data, () => {
-            if (err) {
-                console.log(err);
-            } else {
-                console.log('success');
-            };
+            console.log('success');
         });
     };
 };
