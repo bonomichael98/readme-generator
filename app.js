@@ -51,23 +51,42 @@ const promptProject = portfolioData => {
         }
         //end of inputs
     ]
-    ).then( {
+    ).then(( {
         title, yourName, github, about, tableOfContents, installation, usage, contributing, tests
-    });
+    
+    }) =>{ readmeSkeleton(title, yourName, github,about,tableOfContents,installation,usage,contributing,tests)
+    console.log({title, yourName, github, about, tableOfContents, installation, usage, contributing, tests})})
 };
 
 const readmeSkeleton = (title, yourName, github,about,tableOfContents,installation,usage,contributing,tests) => {
-    return`
+    let data = `
     ##001 ${title}
-    ##002 ${yourName}
-    ##003 ${github}
-    ##004 ${about}
-    ##005 ${tableOfContents}
-    ##006 ${installation}
+    ##002 Author
+    ${yourName}
+    ##003 Github
+    ${github}
+    ##004 Description
+    ${about}
+    ##005 Categories
+    ${tableOfContents}
+    ##006 How to install
+    ${installation}
     ##007 ${usage}
-    ##008 ${contributing}
-    ##009 ${tests}
+    ##008 Contributors
+    ${contributing}
+    ##009 Testing
+    ${tests}
     `
+    create(data)
+    function create(data) {
+        fs.writeFile(`./readme.md`, data, () => {
+            if (err) {
+                console.log(err);
+            } else {
+                console.log('success');
+            };
+        });
+    };
 };
 // promptUser()
 //     .then(promptProject)
@@ -81,14 +100,6 @@ const readmeSkeleton = (title, yourName, github,about,tableOfContents,installati
 //         });
 //     });
 
-// function createNewFile(readmeSkeleton) {
-//     fs.writeFile(`./${fileName}.md`, data, () => {
-//         if (err) {
-//             console.log(err);
-//         } else {
-//             console.log('success');
-//         };
-//     });
-// };
+
 
 promptProject();
