@@ -10,9 +10,13 @@
     
     #006 How to install
     This project uses fs and inquirer
+
     #007 Run app.js and enter input based on the prompts. A README will be created based on the input.
+    
     #008 Contributors
+
     Michael Bono
+
     #009 Testing
     
     

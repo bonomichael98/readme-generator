@@ -61,19 +61,28 @@ const promptProject = portfolioData => {
 const readmeSkeleton = (title, yourName, github,about,tableOfContents,installation,usage,contributing,tests) => {
     let data = `
     ## 01 ${title}
+    
     ## 02 Author
     ${yourName}
+
     ## 03 Github
     ${github}
+
     ## 004 Description
     ${about}
+
     ## 05 Categories
     ${tableOfContents}
+
     ## 06 How to install
     ${installation}
-    ## 07 ${usage}
+
+    ## 07 Usage
+    ${usage}
+
     ## 08 Contributors
     ${contributing}
+
     ## 09 Testing
     ${tests}
     `
