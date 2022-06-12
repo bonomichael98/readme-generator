@@ -1,5 +1,24 @@
 {
   "dependencies": {
     "inquirer": "^8.2.2"
-  }
+  },
+  "name": "readme-generator",
+  "description": "This is a README generator for challenge 9.",
+  "version": "1.0.0",
+  "main": "app.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bonomichael98/readme-generator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bonomichael98/readme-generator/issues"
+  },
+  "homepage": "https://github.com/bonomichael98/readme-generator#readme"
 }
