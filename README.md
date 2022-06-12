@@ -7,4 +7,4 @@ This project is a readme generator that takes in multiple inputs and creates a r
 ## 03 Dependencies
 This project uses inquirer to prompt questions.
 
-## 04 Screenshots and Links
+## 04 Video and Links
